@@ -24,7 +24,7 @@ function FileEditor() {
         </a>
       </div>
       <pre>
-        <code className="hljs language-go">
+        <code className="hljs language-go" contentEditable>
           ${codeExample}
         </code>
       </pre>
