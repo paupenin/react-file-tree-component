@@ -1,0 +1,33 @@
+.file-editor {
+  margin: 0;
+  padding: 0;
+}
+
+.file-editor .file-editor__header {
+  background: #d7d9db;
+  padding: 1.5rem;
+}
+
+.file-editor .file-editor__header a {
+  color: #25172a;
+  text-decoration: none;
+}
+
+.file-editor .file-editor__header a:hover,
+.file-editor .file-editor__header a:focus,
+.file-editor .file-editor__header a:active {
+  text-decoration: underline;
+}
+
+.file-editor pre {
+  margin: 0;
+}
+
+.file-editor code {
+  background: #ffffff;
+  border: 1px solid #d7d9db;
+}
+
+.file-editor [contenteditable] {
+  outline: 0px solid transparent;
+}
