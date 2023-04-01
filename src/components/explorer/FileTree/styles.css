@@ -1,0 +1,31 @@
+.file-tree {
+
+}
+
+.file-tree__item {
+
+}
+
+.file-tree__item {
+
+}
+
+@keyframes file-tree__item-collapse {
+  from {
+    height: 100%;
+  }
+  to {
+    height: 0;
+    display: none;
+  }
+}
+
+@keyframes file-tree__item-expand {
+  from {
+    height: 0;
+    display: block;
+  }
+  to {
+    height: 100%;
+  }
+}
