@@ -1,4 +1,4 @@
-import { FileTreeItemType } from "../components/explorer/FileTree/types";
+import { FileTreeItemType } from "../types/FileTreeTypes";
 
 const data: FileTreeItemType = {
   name: 'project',

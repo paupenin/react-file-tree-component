@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { FileTreeItemType } from './types';
+import { FileTreeItemType } from '../../../types/FileTreeTypes';
 
 import FileTreeItem from '../FileTreeItem';
 

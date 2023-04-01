@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { FileTreeItemType } from '../FileTree/types';
+import { FileTreeItemType } from '../../../types/FileTreeTypes';
 
 import {ReactComponent as FolderChevronIcon} from '../../../assets/icons/chevron.svg';
 import {ReactComponent as FileIcon} from '../../../assets/icons/file.svg';
