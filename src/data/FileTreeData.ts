@@ -1,6 +1,6 @@
-import { FileTreeItem } from "../components/explorer/FileTree/types";
+import { FileTreeItemType } from "../components/explorer/FileTree/types";
 
-const data: FileTreeItem = {
+const data: FileTreeItemType = {
   name: 'project',
   kind: 'directory',
   children: [

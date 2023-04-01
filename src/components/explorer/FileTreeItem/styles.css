@@ -1,0 +1,38 @@
+.file-tree-item__line {
+  display: flex;
+  align-items: center;
+  padding: 0.2rem 0.2rem;
+  cursor: pointer;
+}
+
+.file-tree-item__line:hover {
+  background: #25172a0d;
+}
+
+.file-tree-item__line .file-tree-item__icon {
+  width: 1rem;
+  height: 1rem;
+  margin-right: 0.2rem;
+}
+
+.file-tree-item__icon--directory--expanded {
+  transform: rotate(90deg);
+}
+
+.file-tree-item__icon--file {
+  margin-left: 0.2rem;
+}
+
+.file-tree-item__name {
+  color: #25172a;
+}
+
+.file-tree-item__name--selected {
+  font-weight: 500;
+}
+
+.file-tree-item__children {
+  margin-left: 0.7rem;
+  padding-left: 0.5rem;
+  border-left: 1px dashed #25172a3d;
+}

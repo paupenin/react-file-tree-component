@@ -1,16 +1,16 @@
-export type FileTreeItemKind = 'directory' | 'file';
+export type FileTreeItemKindType = 'directory' | 'file';
 
-export interface FileTreeItemDirectory {
+export interface FileTreeItemDirectoryType {
   name: string,
   kind: 'directory',
-  children: FileTreeItem[],
+  children: FileTreeItemType[],
 }
 
-export interface FileTreeItemFile {
+export interface FileTreeItemFileType {
   name: string,
   kind: 'file',
   size: string,
   modified: string,
 }
 
-export type FileTreeItem = FileTreeItemDirectory | FileTreeItemFile;
+export type FileTreeItemType = FileTreeItemDirectoryType | FileTreeItemFileType;

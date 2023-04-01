@@ -1,31 +1,18 @@
-.file-tree {
-
+.file-tree__header {
+  display: flex;
+  justify-content: space-between;
+  margin: 0.5rem 0;
 }
 
-.file-tree__item {
-
+.file-tree__header__icon {
+  cursor: pointer;
+  margin: 0 0.2rem;
+  padding: 0.2rem;
+  width: 1.2rem;
+  height: 1.2rem;
+  border-radius: 0.2rem;
 }
 
-.file-tree__item {
-
-}
-
-@keyframes file-tree__item-collapse {
-  from {
-    height: 100%;
-  }
-  to {
-    height: 0;
-    display: none;
-  }
-}
-
-@keyframes file-tree__item-expand {
-  from {
-    height: 0;
-    display: block;
-  }
-  to {
-    height: 100%;
-  }
+.file-tree__header__icon:hover {
+  background: #25172a0d;
 }

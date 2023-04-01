@@ -138,6 +138,7 @@ Your app is ready to be deployed!
 
 - Decided to use "CSS files" for separation of concerns between presentation and business logic, reusability, scalability, and performance. Although other patterns superior code organization and reusability, they have limited compatibility and require additional setup beyond the default "create react app" tool.
 - Using CSS BEM naming convention for classes to ensure consistency and redability.
+- Using SVG as a component since it's the best practice when using "create react app".
 
 ## Potential improvements
 
