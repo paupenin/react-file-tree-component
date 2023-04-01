@@ -1,6 +1,108 @@
-# Getting Started with Create React App
+# File Tree Component for AllInBits
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Objective
+
+Create a file tree component that allows the user to browse a directory structure and interact with files and folders.
+
+### Requirements
+
+- The component should display a directory tree structure that the user can navigate.
+- The user should be able to open and close directories by clicking on them
+- The component should display files and folders differently.
+- The user should be able to select a file or folder, the selected item should be highlighted.
+- The component should provide a way to expand/collapse all directories.
+- Bonus:
+    - Implement a feature to allow users to create a new file or folder within the file tree.
+    - Implement drag-and-drop functionality that allows the user to move files and folders within the directory tree structure.
+
+### Data Mockup
+
+```json
+const data = {
+  name: 'project',
+  kind: 'directory',
+  children: [
+    {
+      name: 'src',
+      kind: 'directory',
+      children: [
+        {
+          name: 'index.js',
+          kind: 'file',
+          size: '1KB',
+          modified: '2022-03-08 11:30:00'
+        },
+        {
+          name: 'components',
+          kind: 'directory',
+          children: [
+            {
+              name: 'Button.jsx',
+              kind: 'file',
+              size: '2KB',
+              modified: '2022-03-07 15:00:00'
+            },
+            {
+              name: 'Card.jsx',
+              kind: 'file',
+              size: '3KB',
+              modified: '2022-03-06 10:00:00'
+            }
+          ]
+        },
+        {
+          name: 'styles',
+          kind: 'directory',
+          children: [
+            {
+              name: 'index.css',
+              kind: 'file',
+              size: '1KB',
+              modified: '2022-03-07 09:00:00'
+            },
+            {
+              name: 'components.css',
+              kind: 'file',
+              size: '2KB',
+              modified: '2022-03-06 12:00:00'
+            }
+          ]
+        }
+      ]
+    },
+    {
+      name: 'public',
+      kind: 'directory',
+      children: [
+        {
+          name: 'index.html',
+          kind: 'file',
+          size: '1KB',
+          modified: '2022-03-08 10:00:00'
+        },
+        {
+          name: 'favicon.ico',
+          kind: 'file',
+          size: '5KB',
+          modified: '2022-03-07 16:00:00'
+        }
+      ]
+    },
+    {
+      name: 'package.json',
+      kind: 'file',
+      size: '1KB',
+      modified: '2022-03-08 12:00:00'
+    },
+    {
+      name: 'README.md',
+      kind: 'file',
+      size: '2KB',
+      modified: '2022-03-08 13:00:00'
+    }
+  ]
+};
+```
 
 ## Available Scripts
 
@@ -16,8 +118,7 @@ You will also see any lint errors in the console.
 
 ### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Launches the test runner in the interactive watch mode.
 
 ### `npm run build`
 
@@ -27,20 +128,10 @@ It correctly bundles React in production mode and optimizes the build for the be
 The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Design decisions
 
-### `npm run eject`
+[WIP]
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Potential improvements
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+[WIP]
