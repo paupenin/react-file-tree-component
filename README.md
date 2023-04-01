@@ -17,7 +17,7 @@ Create a file tree component that allows the user to browse a directory structur
 
 ### Data Mockup
 
-```json
+```javascript
 const data = {
   name: 'project',
   kind: 'directory',
@@ -104,6 +104,12 @@ const data = {
 };
 ```
 
+## Installation
+
+### `npm install`
+
+Install all project dependencies, this command is required to be able to run the project.
+
 ## Available Scripts
 
 In the project directory, you can run:
@@ -130,8 +136,11 @@ Your app is ready to be deployed!
 
 ## Design decisions
 
-[WIP]
+- Decided to use "CSS files" for separation of concerns between presentation and business logic, reusability, scalability, and performance. Although other patterns superior code organization and reusability, they have limited compatibility and require additional setup beyond the default "create react app" tool.
+- Using CSS BEM naming convention for classes to ensure consistency and redability.
 
 ## Potential improvements
 
-[WIP]
+- Implement a Burger menu sidebar File Tree panel for mobile devices.
+- Consider using a more advanced styling pattern, such as "Styled Components" or a UI component library like "MUI" to achieve better code organization and expanded styling capabilities.
+
