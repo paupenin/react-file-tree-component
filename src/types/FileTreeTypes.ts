@@ -1,5 +1,3 @@
-export type FileTreeItemKindType = 'directory' | 'file';
-
 export interface FileTreeItemDirectoryType {
   name: string,
   kind: 'directory',

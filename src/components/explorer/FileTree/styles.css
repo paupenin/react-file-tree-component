@@ -1,3 +1,7 @@
+.file-tree {
+  user-select: none;
+}
+
 .file-tree__header {
   display: flex;
   justify-content: space-between;

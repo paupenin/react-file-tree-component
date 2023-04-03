@@ -2,15 +2,18 @@ import React, { useEffect } from 'react';
 
 import hljs from 'highlight.js';
 
+import { useFileTreeStore } from '../../../store/FileTree/context';
+import codeExample from './codeExample';
+
 import 'highlight.js/styles/github.css';
 import './styles.css';
 
-import codeExample from './codeExample';
-
 function FileEditor() {
+  const [state] = useFileTreeStore();
+
   useEffect(() => {
     hljs.highlightAll();
-  });
+  }, []);
 
   return (
     <div className="file-editor">
@@ -18,9 +21,9 @@ function FileEditor() {
         <a
           target="_blank"
           rel="noreferrer"
-          href="https://test3.gno.land/p/demo/avl/avl.gno"
+          href={`https://test3.gno.land/${state.selectedPath}`}
         >
-          /p/demo/avl/avl.gno
+          {state.selectedPath}
         </a>
       </div>
       <pre>

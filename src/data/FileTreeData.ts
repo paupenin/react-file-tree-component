@@ -1,6 +1,6 @@
-import { FileTreeItemType } from "../types/FileTreeTypes";
+import { FileTreeItemDirectoryType } from "../types/FileTreeTypes";
 
-const data: FileTreeItemType = {
+const data: FileTreeItemDirectoryType = {
   name: 'project',
   kind: 'directory',
   children: [

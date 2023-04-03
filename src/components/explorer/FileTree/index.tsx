@@ -1,17 +1,21 @@
 import React from 'react';
 
-import { FileTreeItemType } from '../../../types/FileTreeTypes';
-
 import FileTreeItem from '../FileTreeItem';
 
-import {ReactComponent as AddFileButton} from '../../../assets/icons/file-plus.svg';
-import {ReactComponent as AddFolderButton} from '../../../assets/icons/folder-plus.svg';
-import {ReactComponent as CollapseButton} from '../../../assets/icons/minus-square.svg';
-import {ReactComponent as ExpandButton} from '../../../assets/icons/plus-square.svg';
+import { ReactComponent as AddFileButton } from '../../../assets/icons/file-plus.svg';
+import { ReactComponent as AddFolderButton } from '../../../assets/icons/folder-plus.svg';
+import { ReactComponent as CollapseButton } from '../../../assets/icons/minus-square.svg';
+import { ReactComponent as ExpandButton } from '../../../assets/icons/plus-square.svg';
+
+import { useFileTreeStore } from '../../../store/FileTree/context';
 
 import './styles.css';
 
-function FileTree({ fileTreeData }: { fileTreeData: FileTreeItemType }) {
+
+  const handleExpandAll = () => dispatch({ type: 'EXPAND_ALL' });
+
+  const handleCollapseAll = () => dispatch({ type: 'COLLAPSE_ALL' });
+
   return (
     <div className="file-tree">
       <div className="file-tree__header">
@@ -27,18 +31,26 @@ function FileTree({ fileTreeData }: { fileTreeData: FileTreeItemType }) {
         </div>
 
         <div className="file-tree__header__right">
-          <CollapseButton
-            className="file-tree__header__icon"
-            title="Collapse all"
-          />
+          {state.expandedDirectories.length !== 0 && (
+            <CollapseButton
+              className="file-tree__header__icon"
+              title="Collapse all"
+              onClick={() => handleCollapseAll()}
+            />
+          )}
           <ExpandButton
             className="file-tree__header__icon"
             title="Expand all"
+            onClick={() => handleExpandAll()}
           />
         </div>
       </div>
       <div className="file-tree__explorer">
-        <FileTreeItem item={fileTreeData} />
+        {state.rootItem ? (
+          <FileTreeItem item={state.rootItem} />
+        ) : (
+          <p>Create a directory to get started</p>
+        )}
       </div>
     </div>
   );
