@@ -56,11 +56,17 @@ function FileTreeItem({
         }`}>{item.name}</span>
       </div>
 
-      {isDirectory && isExpanded && (
-        <div className="file-tree-item__children">
-          {item.children.map((child) => (
-            <FileTreeItem key={child.name} item={child} path={itemPath} />
-          ))}
+      {isDirectory && (
+        <div className={
+          `file-tree-item__children ${
+            isExpanded ? 'file-tree-item__children--expanded' : ''
+          }`
+        }>
+          <div className="file-tree-item__children__container">
+            {item.children.map((child) => (
+              <FileTreeItem key={child.name} item={child} path={itemPath} />
+            ))}
+          </div>
         </div>
       )}
     </div>

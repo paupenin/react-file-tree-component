@@ -13,9 +13,11 @@
   width: 1rem;
   height: 1rem;
   margin-right: 0.2rem;
+  transform: rotate(0deg);
+  transition: transform .2s;
 }
 
-.file-tree-item__icon--directory--expanded {
+.file-tree-item__line .file-tree-item__icon--directory--expanded {
   transform: rotate(90deg);
 }
 
@@ -35,4 +37,14 @@
   margin-left: 0.7rem;
   padding-left: 0.5rem;
   border-left: 1px dashed #25172a3d;
+  overflow: hidden;
+}
+
+.file-tree-item__children > .file-tree-item__children__container {
+  margin-top: -100vh;
+  transition: margin-top .2s;
+}
+
+.file-tree-item__children.file-tree-item__children--expanded > .file-tree-item__children__container {
+  margin-top: 0;
 }
