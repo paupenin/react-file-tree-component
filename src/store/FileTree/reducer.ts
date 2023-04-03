@@ -95,6 +95,55 @@ export default function reducer(state: FileTreeStateType, action: ActionType): F
         ...state,
         expandedDirectories: [],
       };
+    case 'DRAG_TARGET_ENTER':
+      if (action.payload.path === state.dragTargetPath) return state;
+
+      return {
+        ...state,
+        dragTargetPath: action.payload.path,
+      };
+    case 'DRAG_TARGET_LEAVE':
+      return {
+        ...state,
+        dragTargetPath: undefined,
+      };
+    case 'DRAG_END':
+      // If target don't exist we don't need to perform any action
+      if (!state.dragTargetPath) return state;
+
+      const originDirPath = action.payload.path.slice(0, action.payload.path.lastIndexOf('/'));
+      const targetDirPath = state.dragTargetPath;
+
+      // If directories are the same we don't need to perform any action
+      if (originDirPath === targetDirPath) return state;
+
+      const newRootItemDragEnd = { ...state.rootItem };
+
+      const originItem = getItemByPath(newRootItemDragEnd, action.payload.path);
+      if (!originItem) return state;
+
+      const targetItem = getItemByPath(newRootItemDragEnd, `${targetDirPath}/${originItem?.name}`);
+      if (targetItem) return state;
+
+      // Get target directory
+      const targetParentDir = getDirectoryByPath(newRootItemDragEnd, targetDirPath);
+
+      // Add item to target directory
+      targetParentDir.children.push(originItem);
+
+      // Sort children alphabetically
+      sortChildren(targetParentDir);
+
+      // Remove item from origin directory
+      const originParentDir = getDirectoryByPath(newRootItemDragEnd, originDirPath);
+      const originalIndex = originParentDir.children.findIndex((c) => c.name === originItem.name);
+      originParentDir.children.splice(originalIndex, 1);
+
+      return {
+        ...state,
+        rootItem: newRootItemDragEnd,
+        dragTargetPath: undefined,
+      };
     default:
       return state;
   }

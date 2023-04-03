@@ -15,6 +15,7 @@
   margin-right: 0.2rem;
   transform: rotate(0deg);
   transition: transform .2s;
+  pointer-events: none;
 }
 
 .file-tree-item__line .file-tree-item__icon--directory--expanded {
@@ -27,6 +28,7 @@
 
 .file-tree-item__name {
   color: #25172a;
+  pointer-events: none;
 }
 
 .file-tree-item__name--selected {
@@ -47,4 +49,8 @@
 
 .file-tree-item__children.file-tree-item__children--expanded > .file-tree-item__children__container {
   margin-top: 0;
+}
+
+.file-tree-item.file-tree-item--drag-target {
+  background: #d3ddee;
 }

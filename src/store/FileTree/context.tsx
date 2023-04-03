@@ -12,12 +12,14 @@ export interface FileTreeStateType {
   rootItem: FileTreeItemDirectoryType;
   selectedPath: string;
   expandedDirectories: string[];
+  dragTargetPath?: string;
 }
 
 const initialState: FileTreeStateType = {
   rootItem: fileTreeData,
   selectedPath: fileTreeData.name,
   expandedDirectories: [],
+  dragTargetPath: undefined,
 };
 
 /**

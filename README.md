@@ -13,7 +13,7 @@ Create a file tree component that allows the user to browse a directory structur
 - ✅ The component should provide a way to expand/collapse all directories.
 - Bonus:
     - ✅ Implement a feature to allow users to create a new file or folder within the file tree.
-    - Implement drag-and-drop functionality that allows the user to move files and folders within the directory tree structure.
+    - ✅ Implement drag-and-drop functionality that allows the user to move files and folders within the directory tree structure.
 
 ### Data Mockup
 
@@ -143,13 +143,14 @@ Your app is ready to be deployed!
 - Created global store `store/FileTree` using Context with a Reducer pattern to manage state across components without prop-drilling.
 - Decided to use a global store instead of a self-contained context in `components/explorer/FileTree` component to be able to consume the state outside of the component as showcased in `components/editor/FileEditor` component.
 - Decided to extract `store/FileTree` reducer actions into interfaces and types in `store/FileTree/actions.ts` file to have self-documented code while leveraging Typescript features.
-- Decided to have a separate states and reducers in the store to improve performance and have a more Redux-like codebase which may allow for an easy transition into Redux if desired.
+- Decided to have multiple stores (just exists one right now) with multiple states and reducers in the store to improve performance and have a more Redux-like codebase which may allow for an easy transition into Redux if desired.
 - Decided to divide `store/FileTree` state into:
   - `rootItem`: Keeps same structure as provided mock data, it loads mock data as initial data.
   - `selectedPath`: Current selected path as a string, ex: 'project/README.md'. This was prefered over a key in `rootItem` objects to avoid modifying mock data structure.
   - `expandedDirectories`: Array to keep track of which directory paths are expanded. This was prefered over a key in `rootItem` objects to avoid modifying mock data structure.
-- Decided to reuse reducer in `TOGGLE_DIRECTORY` action to `SELECT_ITEM`, this avoids multiple actions causing unnecessary re-rendering. This pattern could be avoided by using Redux.
+- Decided to reuse reducer in `TOGGLE_DIRECTORY` action to `SELECT_ITEM`, this avoids multiple actions causing unnecessary re-rendering. This pattern could be avoided by using Redux or by implementing something similar to what Redux does.
 - Decided to extract reusable pieces of functionality for file structure and dates into `utils` folder to keep components and reducer easier to read.
+- Decided to implement draggable using HTML5 events to keep the application lightweight and easier to review.
 
 
 ## Potential improvements
@@ -157,5 +158,15 @@ Your app is ready to be deployed!
 - Implement a Burger menu sidebar File Tree panel for mobile devices.
 - Consider using a more advanced styling pattern, such as "Styled Components" or a UI component library like "MUI" to achieve better code organization and expanded styling capabilities.
 - Implement a more robust state-management library like Redux.
-- Optimize operations in `utils/FileTree`.
+Improve and simplify FileTree operations, and extract related functionality from `store/FileTree/reducer` into utils. I'd like to develop operations in the FileTree similar to what you'd find in a CLI: `mkdir`, `mv`, `cp`, `rm`, `rmdir`.
 - Change mock data in `data/fileTreeData.ts` to reorder `project/src/index.js` since it appears before folders, alternatively implement a deep reorder function for initial state.
+- Implement drag&drop funcionality with a library which will have a higher compatibility, would be less prone to errors, and would not require to trick it with `setTimeout`.
+- Add unit tests for `utils` and `reducers`.
+- Add feature tests to `components`.
+- Install `StoryBook` and create stores for `components` and `views`.
+- Improve `FileEditor` component to show diferent content based on selected file extension, make it editable, and remove unescaped HTML warnings.
+
+## Conclusion
+
+- I think that libraries could get the job done a little bit faster but wouldn't showcase my skillsand would made the code much more complicated to review.
+- I enjoyed the challenge but I think it's very complicated to get done all the features within the 8 hours.
