@@ -18,5 +18,6 @@
 }
 
 .file-tree__header__icon:hover {
+  color: #000;
   background: #25172a0d;
 }

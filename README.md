@@ -12,7 +12,7 @@ Create a file tree component that allows the user to browse a directory structur
 - ✅ The user should be able to select a file or folder, the selected item should be highlighted.
 - ✅ The component should provide a way to expand/collapse all directories.
 - Bonus:
-    - Implement a feature to allow users to create a new file or folder within the file tree.
+    - ✅ Implement a feature to allow users to create a new file or folder within the file tree.
     - Implement drag-and-drop functionality that allows the user to move files and folders within the directory tree structure.
 
 ### Data Mockup
@@ -148,9 +148,14 @@ Your app is ready to be deployed!
   - `rootItem`: Keeps same structure as provided mock data, it loads mock data as initial data.
   - `selectedPath`: Current selected path as a string, ex: 'project/README.md'. This was prefered over a key in `rootItem` objects to avoid modifying mock data structure.
   - `expandedDirectories`: Array to keep track of which directory paths are expanded. This was prefered over a key in `rootItem` objects to avoid modifying mock data structure.
+- Decided to reuse reducer in `TOGGLE_DIRECTORY` action to `SELECT_ITEM`, this avoids multiple actions causing unnecessary re-rendering. This pattern could be avoided by using Redux.
+- Decided to extract reusable pieces of functionality for file structure and dates into `utils` folder to keep components and reducer easier to read.
+
 
 ## Potential improvements
 
 - Implement a Burger menu sidebar File Tree panel for mobile devices.
 - Consider using a more advanced styling pattern, such as "Styled Components" or a UI component library like "MUI" to achieve better code organization and expanded styling capabilities.
 - Implement a more robust state-management library like Redux.
+- Optimize operations in `utils/FileTree`.
+- Change mock data in `data/fileTreeData.ts` to reorder `project/src/index.js` since it appears before folders, alternatively implement a deep reorder function for initial state.

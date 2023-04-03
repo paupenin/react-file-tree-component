@@ -8,9 +8,50 @@ import { ReactComponent as CollapseButton } from '../../../assets/icons/minus-sq
 import { ReactComponent as ExpandButton } from '../../../assets/icons/plus-square.svg';
 
 import { useFileTreeStore } from '../../../store/FileTree/context';
+import { dateToDateTime } from '../../../utils/Dates';
+import { getDirectoryByPath, makeNewItemName } from '../../../utils/FileTree';
 
 import './styles.css';
 
+function FileTree() {
+  const [state, dispatch] = useFileTreeStore();
+
+  const handleAddFile = () => {
+    const parentDirectory = getDirectoryByPath(state.rootItem, state.selectedPath);
+
+    const newName = makeNewItemName(parentDirectory, 'new-file.txt');
+
+    return dispatch({
+      type: 'ADD_FILE',
+      payload: {
+        path: state.selectedPath,
+        file: {
+          name: newName,
+          kind: 'file',
+          size: '1KB',
+          modified: dateToDateTime(new Date()),
+        },
+      },
+    });
+  };
+
+  const handleAddDir = () => {
+    const parentDirectory = getDirectoryByPath(state.rootItem, state.selectedPath);
+
+    const newName = makeNewItemName(parentDirectory, 'new-directory');
+
+    return dispatch({
+      type: 'ADD_DIRECTORY',
+      payload: {
+        path: state.selectedPath,
+        directory: {
+          name: newName,
+          kind: 'directory',
+          children: [],
+        },
+      },
+    });
+  };
 
   const handleExpandAll = () => dispatch({ type: 'EXPAND_ALL' });
 
@@ -20,13 +61,17 @@ import './styles.css';
     <div className="file-tree">
       <div className="file-tree__header">
         <div className="file-tree__header__left">
-          <AddFileButton
-            className="file-tree__header__icon"
-            title="Add file"
-          />
+          {state.rootItem && (
+            <AddFileButton
+              className="file-tree__header__icon"
+              title="Add file"
+              onClick={() => handleAddFile()}
+            />
+          )}
           <AddFolderButton
             className="file-tree__header__icon"
             title="Add folder"
+            onClick={() => handleAddDir()}
           />
         </div>
 
