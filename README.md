@@ -1,5 +1,9 @@
 # React File Tree Component Example using Context and Reducers
 
+## Demo
+
+[Check the online demo](https://react-file-tree-component-78bdpq19m-paupenin.vercel.app/)
+
 ## Objective
 
 Create a file tree component that allows the user to browse a directory structure and interact with files and folders.
