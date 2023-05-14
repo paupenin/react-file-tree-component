@@ -165,8 +165,3 @@ Improve and simplify FileTree operations, and extract related functionality from
 - Add feature tests to `components`.
 - Install `StoryBook` and create stores for `components` and `views`.
 - Improve `FileEditor` component to show diferent content based on selected file extension, make it editable, and remove unescaped HTML warnings.
-
-## Conclusion
-
-- I think that libraries could get the job done a little bit faster but wouldn't showcase my skillsand would made the code much more complicated to review.
-- I enjoyed the challenge but I think it's very complicated to get done all the features within the 8 hours.
