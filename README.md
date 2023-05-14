@@ -1,4 +1,4 @@
-# File Tree Component for AllInBits
+# React File Tree Component Example using Context and Reducers
 
 ## Objective
 
@@ -159,6 +159,7 @@ Your app is ready to be deployed!
 - Consider using a more advanced styling pattern, such as "Styled Components" or a UI component library like "MUI" to achieve better code organization and expanded styling capabilities.
 - Implement a more robust state-management library like Redux.
 Improve and simplify FileTree operations, and extract related functionality from `store/FileTree/reducer` into utils. I'd like to develop operations in the FileTree similar to what you'd find in a CLI: `mkdir`, `mv`, `cp`, `rm`, `rmdir`.
+- Use `React.memo` to reduce rerendering of subcomponents on Context state changes.
 - Change mock data in `data/fileTreeData.ts` to reorder `project/src/index.js` since it appears before folders, alternatively implement a deep reorder function for initial state.
 - Implement drag&drop funcionality with a library which will have a higher compatibility, would be less prone to errors, and would not require to trick it with `setTimeout`.
 - Add unit tests for `utils` and `reducers`.
